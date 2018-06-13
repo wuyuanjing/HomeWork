@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/test.js"></script>
+</head>
+<body>
+    <div id="box">box</div>
+
+</body>
+</html>
+<script>
+    var oBox = document.getElementById("box");
+
+    addEvent(oBox,"click",fn);
+
+// removeEvent(oBox,"click",fn);
+
+
+    function fn(e) {
+         alert(e.clientX);
+//    alert("1")
+    }
+
+
+
+  
+
+
+</script>

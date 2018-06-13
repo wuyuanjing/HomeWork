@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/test.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: yellow;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+        #aaa{
+            width: 500px;
+            height: 500px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="按钮">
+
+<div id="box"></div>
+
+<div id="aaa"></div>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            $("#box").animate({
+                "attr" : "x",
+                "start" : 200,
+                "step" : 6,
+				"alter":300,
+//				"tatget":0,
+                "t" : 30,
+                "speed" : 10
+            });
+        });
+
+
+
+    })
+</script>
+
+

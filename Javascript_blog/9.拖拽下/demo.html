@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<a href="https://www.baidu.com">百度一下，你就知道</a>
+
+</body>
+</html>
+<script>
+    var oA = document.getElementsByTagName("a")[0];
+    oA.onclick = function (ev) {
+       var oEvent = ev || window.event;
+      if(typeof oEvent.preventDefault != "undefined"){
+          oEvent.preventDefault();
+      }else{
+          oEvent.returnValue = false;
+      }
+       alert("1");
+    }
+
+</script>

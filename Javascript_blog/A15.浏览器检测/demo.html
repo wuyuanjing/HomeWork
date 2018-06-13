@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box" style="width:200px;height:200px;background: yellow;"></div>
+</body>
+</html>
+<script>
+    window.onload = function () {     
+
+		//设置一个全部变量，用来保存获取到的浏览器信息
+    	window.sys = {};
+		//alert(navigator.userAgent); //弹出浏览器信息
+		
+    	//获取浏览器的信息,并且将信息全部转化为小写
+	    var ua = navigator.userAgent.toLocaleLowerCase();
+		//alert((/firefox\/([\d.]+)/).test(ua));//true
+
+	    //保存浏览器的版本信息
+	    var s = null;
+	    
+       //!*获取火狐浏览器的版本信息*!/
+		if ((/firefox\/([\d.]+)/).test(ua)) {
+		    s = ua.match(/firefox\/([\d.]+)/);
+		    sys.firefox = s[0];
+		}
+		
+		if(sys.firefox){
+		  var oBox = document.getElementById("box");
+	          oBox.onclick = function () {
+	            this.style.background = "red";
+	          }
+		}
+    }
+</script>

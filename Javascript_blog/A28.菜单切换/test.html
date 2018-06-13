@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box" style="width: 100px; height: 100px; background: red;">123</div>
+</body>
+</html>
+<script>
+    var oBox = document.getElementById("box");
+    
+    var a = {
+        name : "jack",
+        innerHTML : "rose"
+    };
+    
+    function demo() {
+        alert(this.innerHTML);
+    }
+    demo.call(a)
+    
+</script>

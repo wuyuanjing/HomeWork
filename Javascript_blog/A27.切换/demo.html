@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <style>
+       	/* #box{
+            width: 200px;
+            height: 200px;
+            background: red;
+
+        }*/
+        #box2{
+        	width:200px;
+        	height:100px;
+        	background:pink;
+            overflow:hidden;    	
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="切换" id="btn">
+<div id="box">切换切换切换切换切换切换切换切换</div>
+
+
+<h2 id="btn2"><a href="#">新闻</a></h2>
+<div id="box2">
+<p >heoloheoloheoloheoloheo<br/>loheoloheoloheoloheolo</p>
+	
+</div>
+
+</body>
+</html>
+<script>
+/*$(function () {
+    $("#btn").toggle(function () {
+        $("#box").css("background","yellow");
+    },function () {
+        $("#box").css("background","red");
+    },function () {
+        $("#box").css("background","purple");
+    })
+});*/
+
+
+/*$(function () {
+    $("#btn").toggle(function () {
+        $("#box").css("height","0px");
+    },function () {
+        $("#box").css("height","200px");
+    })
+});*/
+
+/*$(function () {
+    $("#btn").toggle(function () {
+        $("#box").css("display","none");
+    },function () {
+        $("#box").css("display","block");
+    })
+});*/
+
+
+	$("#btn2").toggle(function(){
+		$("#box2").css("height","0px");
+	},function(){
+		$("#box2").css("height","100px");
+	})
+
+</script>

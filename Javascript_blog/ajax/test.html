@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .blog{
+            width: 550px;
+            height: 350px;
+            border: 2px solid red;
+            margin: 100px auto;
+        }
+        .blog h2{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 14px;
+            background: peachpuff;
+            border-bottom: 2px solid red;
+        }
+        .blog .container{
+            padding: 20px;
+        }
+        .blog .container p{
+            text-indent: 2em;
+            line-height: 25px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" id="btn" value="发送数据">
+
+<div class="blog">
+    <h2></h2>
+    <div class="container">
+     <!--   <p>谁是英雄？今天，我们一起寻找”，5月21日开始，由人民日报社新媒体中心和众多网络媒体共同发起的“崇尚英雄 精忠报国”大型网络互动活动，引发互联网上的传播热潮。两天内，相关网络话题的点击量超过1.7亿次。</p>
+        <p>与此同时，全国中小学也正在同步开展“崇尚英雄 精忠报国”主题班会。“崇尚英雄”并不是要让孩子去做“力所不能及”的事，而是教导他们从小拥有远大志向、宝贵勇气和拼搏精神。相信，“怎样的人称得上英雄”“用什么方式去报国”会成为孩子们之间热切讨论的话题，也可能让很多家庭几代人坐在一起，共同追寻家国记忆、感悟英雄精神。</p>-->
+    </div>
+</div>
+
+<script src="js/ajax.js"></script>
+<script>
+
+    var oBtn = document.getElementById("btn");
+    var oH2 = document.getElementsByTagName("h2")[0];
+    var oDiv = document.getElementsByTagName("div")[1];
+    window.onload = function () {
+        setTimeout(function () {
+            ajax({
+                //提交方式，有两个参数，分别是 get方式   和  post方式
+                method : "get",
+                //数据提交的地址 url
+                url : "demo.php",
+                //发送的数据,格式是键值对
+                data : {
+
+                },
+                //接受后台返回的数据
+                success : function (responseText) {
+                    var a = JSON.parse(responseText);
+                    oH2.innerHTML = a[0];
+                    oDiv.innerHTML = "<p>" + a[1] +"</p>" + "<p>" + a[2] + "</p>"
+                },
+                //设置当前是同步还是异步
+                async : true
+            })
+        },3000)
+
+    }
+
+  
+
+</script>
+
+
+</body>
+</html>

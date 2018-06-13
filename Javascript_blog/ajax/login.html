@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        *{margin: 0; padding: 0;}
+        #reg{
+            width: 500px;
+            border: 3px solid red;
+            margin: 100px auto;
+            padding: 20px;
+            display: none;
+        }
+        #reg dl{
+            padding: 10px 0;
+        }
+        #reg .text{
+            width: 250px;
+            height: 35px;
+            line-height: 35px;
+            border: 1px solid purple;
+        }
+        #reg #sub{
+            width: 120px;
+            height: 35px;
+            border: none;
+            color: #fff;
+            background: purple;
+            cursor: pointer;
+        }
+        #succ{
+            width: 100px;
+            height: 100px;
+            border-radius:50%;
+            background: pink;
+            color: #000;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -50px 0 0 -50px;
+            display: none;
+        }
+        #login{
+            cursor: pointer;
+        }
+        .loading{
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            text-align: center;
+            line-height: 300px;
+            font-size: 30px;
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login">请登录</div>
+
+<div id="reg">
+    <form action="">
+        <dl>
+            <dt>
+                用户名: <input type="text" class="text" name="user" value=""><span id="username"></span>
+            </dt>
+        </dl>
+        <dl>
+            <dt>
+                密　码: <input type="password" class="text" name="pass" value="">
+            </dt>
+        </dl>
+        <dl>
+            <dt style="margin-left: 80px">
+                <input type="button" value="登录" id="sub">
+            </dt>
+        </dl>
+    </form>
+</div>
+
+<div id="succ"></div>
+
+<div class="loading" id="loading">正在登录</div>
+
+<script src="js/ajax.js"></script>
+<script>
+
+    var userName = document.getElementsByTagName("input")[0];
+    var userPass = document.getElementsByTagName("input")[1];
+    var oSub = document.getElementById("sub");
+    var user = document.getElementById("username");
+    var succ = document.getElementById("succ");
+    var oLogin = document.getElementById("login");
+    var oReg = document.getElementById("reg");
+    var oLoading = document.getElementById("loading");
+
+    oLogin.onclick = function () {
+        oReg.style.display = "block";
+    }
+    
+    oSub.onclick = function () {
+        oLoading.style.display = "block";
+        setTimeout(function () {
+            ajax({
+                method : "post",
+                url : "reg/is_login.php",
+                data : {
+                    user : userName.value,
+                    pass : userPass.value
+                },
+                success : function (responseText) {
+                    if(responseText == "success"){
+                        oReg.style.display = "none";
+                        oLoading.style.display = "none";
+                        oLogin.innerHTML = userName.value + "您好，欢迎您回来";
+                        userName.value= "";
+                        userPass.value = "";
+
+                    }else if(responseText == "error"){
+                        alert("用户名或密码不对");
+                    }
+                },
+                async : true
+            })
+        },2000);
+
+    };
+
+
+</script>
+
+
+</body>
+</html>

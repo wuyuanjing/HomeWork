@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <!--<script src="js/test.js"></script>-->
+</head>
+<body>
+<iframe src="http://www.pythonblog.top" width="500" height="500"></iframe>
+
+<img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1526437345&di=e1162e2f42526d0c4401e1f57ea40c1e&src=http://p19.qhimg.com/bdr/__/d/_open360/cartoonm0204/18.jpg" alt="">
+
+<script>
+    //等待页面所有资源加载完毕之后再执行
+/*	 window.onload = function () {
+     var oBox = document.getElementById("box");
+     alert(oBox.innerHTML);
+     }*/
+
+
+    //通过DOMContentLoaded方法等等待页面所有dom元素加载完毕之后执行
+/*    if(document.addEventListener){
+     addEvent(document,"DOMContentLoaded",a)
+	     function a() {
+	     alert("1");
+	     }
+     }*/
+
+
+
+    //ie浏览器加载
+/*     document.write("<script defer='defer' id='ie_onload'><\/script>");
+     var script = document.getElementById("ie_onload");
+     script.onreadystatechange = function () {
+	     if(this.readyState == "complete"){
+	     var box = document.getElementById('box');
+	     alert(box.innerHTML);
+	     }
+     };*/
+
+/*    	 var timer = null;
+     timer = setInterval(function () {
+     try {
+     document.documentElement.doScroll('left');
+     var box = document.getElementById('box');
+     alert(box.innerHTML);
+     } catch (ex) {};
+     });*/
+
+  	  function addDomLoaded(fn) {
+        if (document.addEventListener) {			//W3C
+            addEvent(document, 'DOMContentLoaded', function () {
+                fn();
+                removeEvent(document, 'DOMContentLoaded', arguments.callee);
+            });
+        }
+        else {								//IE
+            var timer = null;
+            timer = setInterval(function () {
+                try {
+                    document.documentElement.doScroll('left');
+                    fn();
+                } catch (ex) {};
+            });
+        }
+    }
+
+    addDomLoaded(function () {
+        var $ = function (args) {
+            return new Base(args)
+        }
+
+        $("#box").click(function () {
+            alert("hello")
+        })
+    })
+
+</script>
+
+<div id="box">hello</div>
+</body>
+</html>
+
+

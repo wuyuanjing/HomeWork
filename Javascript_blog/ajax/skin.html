@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{
+            list-style-type: none;
+            width: 800px;
+            margin: 100px auto;
+        }
+        ul li{
+            border: 2px solid #000;
+            padding: 5px;
+            width: 200px;
+            height: 120px;
+            float: left;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<script src="js/ajax.js"></script>
+<script>
+    /*[
+        {"small_bg":"small_bg1.png","big_bg":"bg1.jpg","bg_color":"#e7e9e8"},
+        {"small_bg":"small_bg2.png","big_bg":"bg2.jpg","bg_color":"#ecfofc"},
+        {"small_bg":"small_bg3.png","big_bg":"bg3.jpg","bg_color":"#e2e2e2"}
+        ]*/
+    var oUl = document.getElementsByTagName("ul")[0];
+    var aLi = oUl.getElementsByTagName("li");
+    ajax({
+        method : "get",
+        url : "reg/get_skin.php",
+        data:{},
+        success : function (responseText) {
+            var obj = JSON.parse(responseText);
+             for(var i=0;i<aLi.length;i++){
+                 aLi[i].innerHTML = "<img src='img/"+ obj[i].small_bg +"'>"
+             }
+        },
+        async : true
+    })
+
+
+</script>
+
+
+</body>
+</html>

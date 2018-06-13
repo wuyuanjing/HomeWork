@@ -1,0 +1,14 @@
+getStyle(element,attr)  502
+target                  500
+element.style[attr]     500
+getStyle(element,attr)   496        6
+
+getStyle(element,attr)   496  -  500  4 < 6 true
+getStyle(element,attr)    4   -   0  <  6   0
+
+
+500     -     100   /    6  =  66.6666
+
+400 - 66.66 /  6  == 55.5
+
+(400 - 55.5) /6

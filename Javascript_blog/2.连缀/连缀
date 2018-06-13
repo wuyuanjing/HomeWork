@@ -1,0 +1,61 @@
+﻿一，什么是连缀？
+    所谓连缀，最简单的理解就是一句话同时设置一个或多个节点两个或两个以上的操作。
+    例如：
+        $().getId('box').css('color', 'red').html('标题').click(function () {alert('a')});
+
+    好处：
+        连缀的好处，就是快速方便的设置节点的操作。
+二．改写库对象
+如果是实现操作连缀，那么我们就需要改写上一节课的对象写法：var Base = {}，这种写法无法在它的原型中添加方法，所以需要使用函数式对象写法：
+function Base() {
+	//把返回的节点对象保存到一个Base对象的属性数组里
+	this.elements = [];
+	//获取id节点
+	this.getId = function (id) {
+		this.elements.push(document.getElementById(id));
+		return this;
+	};
+	//获取name节点数组
+	this.getName = function (name) {
+		var names = document.getElementsByName(name);
+		for (var i = 0; i < names.length; i ++) {
+			this.elements.push(names[i]);
+		}
+		return this;
+	}	
+//获取元素节点数组
+	this.getTagName = function (tag) {
+		var tags = document.getElementsByTagName(tag);
+		for (var i = 0; i < tags.length; i ++) {
+			this.elements.push(tags);
+		}
+		return this;
+	};
+}
+
+PS：这种写法麻烦的地方是，需要在前台new出来，然后调用。但采用这种方式，我们可以在每个方法里在每个方法里都返回这个对象，并且还可以在对象的原型里添加方法，这些都是连缀操作最基本的要求。
+Base.prototype.click = function (fn) {
+	for (var i = 0; i < this.elements.length; i ++) {
+		this.elements[i].onclick = fn;
+	}
+	return this;
+};
+
+Base.prototype.css = function (attr, value) {
+	for (var i = 0; i < this.elements.length; i ++) {
+		this.elements[i].style[attr] = value;
+	}
+	return this;
+}
+
+Base.prototype.html = function (str) {
+	for (var i = 0; i < this.elements.length; i ++) {
+		this.elements[i].innerHTML = str;
+	}
+	return this;
+}
+
+PS：为了避免在前台new一个对象，我们可以在库里面直接new。
+var $ = function () {
+	return new Base();
+};

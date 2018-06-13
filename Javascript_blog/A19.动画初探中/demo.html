@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/test.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        #slider_bar{
+            width: 250px;
+            height: 350px;
+            background: purple;
+            position: absolute;
+            left: -250px;
+            top: 50%;
+            margin-top: -175px;
+            color: #fff;
+        }
+        #slider_bar span{
+            display: block;
+            position: absolute;
+            right: -50px;
+            width: 30px;
+            background: #000;
+            text-align: center;
+            height: 100px;
+            padding: 0 10px;
+            line-height: 35px;
+            top: 50%;
+            margin-top: -50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="slider_bar">
+        <span>分享到</span>
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#slider_bar").hover(function () {
+            $(this).animate({
+                attr : "x",
+                alter : 250
+            })
+        },function () {
+            $(this).animate({
+                attr : "x",
+                alter : -250
+            })
+        })
+    })
+</script>
+
+

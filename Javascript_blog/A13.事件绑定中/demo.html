@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/test.js"></script>
+</head>
+<body>
+<input type="button" value="按钮" id="box">
+
+</body>
+</html>
+<script>
+    var oBox = document.getElementById("box");
+    addEvent(oBox,"click",fn1);
+    addEvent(oBox,"click",fn2);
+    addEvent(oBox,"click",fn3);
+
+//    removeEvent(oBox,"click",fn1);
+//    addEvent(oBox,"click",fn2);
+//    addEvent(oBox,"click",fn3);
+//    removeEvent(oBox,"click",fn1);
+    function fn1() {
+        alert("1");
+    }
+    function fn2() {
+        alert("2");
+    }gl
+    function fn3() {
+        alert("3");
+    }
+
+
+</script>

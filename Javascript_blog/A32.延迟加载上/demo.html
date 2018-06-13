@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #demo1{
+            width: 400px;
+            height: 400px;
+            background: yellow;
+            position: absolute;
+            top: 30px;
+        }
+        #box{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: red;
+        }
+        #test{
+            width: 500px;
+            height: 500px;
+            background: purple;
+            position: relative;
+            top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="test">
+    <div id="demo1">
+
+        <div id="box"></div>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
+<script>
+
+    var oDemo1 = document.getElementById("demo1");
+    var oBox = document.getElementById("box");
+    
+    function offsetTop(element) {
+        var top = element.offsetTop;  // 1.得到传进来的元素顶部距离父级的距离
+        var parent = element.offsetParent;  //2.得到当前传来的元素的父级
+        while (parent != null){
+            top = top + parent.offsetTop;
+            parent= parent.offsetParent;
+        }
+        return top;
+    }
+    alert(offsetTop(oBox))
+</script>

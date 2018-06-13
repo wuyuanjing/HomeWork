@@ -1,0 +1,40 @@
+﻿一，项目介绍
+
+    在现在流行的网站中，大量使用前端的Web应用，估计就是博客系统了。博客系统目前主要分为两种，一种是博客，一种是微博(一句话博客)。
+
+    不管在博客和微博，都采用的大量的JavaScript特效，有图片广告、下拉菜单、表单验证、弹窗、轮播器等等一系列。那么我们就创建一个项目，
+    把上面各种应用较多的效果编写出来。
+
+    实例：http://t.qq.com/yangling759168442  （腾讯微博）
+
+二，理解JavaScript库
+    什么是JavaScript库？说白了，就是把各种常用的代码片段，组织起来放在一个js文件里，组成一个包，这个包就是JavaScript库。
+    现如今有太多优秀的开源JavaScript库，比如：jQuery、Prototype、Dojo、Extjs等等。
+
+这些JavaScript库已经把最常用的代码进行了有效的封装，以方便我们开发，从而提高效率。
+
+三,创建基础库
+    我们可以创建一个库，这是一个基础库，名字就叫做base.js。我们准备在里面编写最常用的代码，然后不断的扩展封装。
+    在最常用的代码中，最最常用的，也许就是获取节点方法。这里我们可以编写如下代码：
+
+    //创建一个base.js
+    var Base = {                         //整个库可以是一个对象
+        //获取元素的id节点
+        getId : function(id){
+            return document.getElementById(id);
+        }
+        //获取元素Name节点
+        getName : function(name){
+            return document.getElementsByNames(name);
+        }
+        //获取元素TagName节点
+        getTagName : function(){
+            return document.getElementsByTagName(tag);
+        }
+    }
+
+
+    //前台调用代码片段
+       alert(Base.getId("box").innerHTML);
+       alert(Base.getName("sex")[0].value);
+       alert(Base.getTagName("p")[0].innerHTML);

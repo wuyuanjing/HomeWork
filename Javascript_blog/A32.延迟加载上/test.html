@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        #photo{
+            width: 900px;
+            margin: 1200px auto;
+        }
+        #photo dl{
+            width: 225px;
+            height: 270px;
+            float: left;
+            margin: 5px 0 15px 0;
+        }
+        #photo dl dt{
+            width: 200px;
+            height: 250px;
+            margin: 0 auto;
+        }
+        #photo dl dd{
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+        }
+        #photo img{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="photo">
+    <dl>
+        <dt><img xsrc="img/p1.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p2.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p3.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p4.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p5.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p6.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p7.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p8.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p9.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p10.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p11.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+    <dl>
+        <dt><img xsrc="img/p12.jpg" src="img/wait_load.jpg" alt=""></dt>
+        <dd>延迟加载图片</dd>
+    </dl>
+</div>
+
+
+</body>
+</html>
+<script>
+    $(function () {
+        var aImg = document.getElementsByTagName("img");
+        addEvent(window,"scroll",function () {
+            if(getScroll().top >= 1200){
+              for(var i=0;i<aImg.length;i++){
+                  aImg[i].setAttribute("src",aImg[i].getAttribute("xsrc"));
+              }
+            }
+        })
+    })
+</script>

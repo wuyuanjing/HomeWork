@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+    <style>
+        html,body,div,ul,li,img,span{margin: 0; padding: 0;}
+        #banner{width: 900px; position: relative; overflow: hidden; height: 150px; border: 1px solid red; margin: 100px auto 0;}
+        #banner ul{list-style-type: none;width: 2700px; height: 150px; background: pink; position: absolute; left: 0;top: 0;}
+        #banner ul li{width: 900px; float: left; height: 150px;}
+        #banner ul li img{display: block;}
+        #banner .btn{width: 100%;text-align: center; line-height: 40px; height:30px;background: #000;opacity: 0.5;filter: alpha(opacity=50);position: absolute;left: 0;bottom: 0;  }
+        #banner .btn span{display: inline-block; margin: 0 5px; cursor:  pointer; width: 20px; height: 20px; background: #fff; border-radius: 50%;}
+        #banner .btn span.active{background: yellow;}
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <ul>
+            <li><img src="img/banner1.jpg" alt=""></li>
+            <li><img src="img/banner2.jpg" alt=""></li>
+            <li><img src="img/banner3.jpg" alt=""></li>
+        </ul>
+        <div class="btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#banner .btn span").eq(0).addClass("active");
+
+        $("#banner .btn span").click(function () {
+          var _index = $(this).index();
+          $("#banner .btn span").removeClass("active");
+          $(this).addClass("active");
+          $("#banner ul").animate({
+              attr : "x",
+              target : _index * -900
+          })
+       });
+        var num = 1;
+        setInterval(function () {
+            if(num >= $("#banner .btn span").size()) num=0;
+            $("#banner .btn span").removeClass("active");
+            $("#banner .btn span").eq(num).addClass("active");
+            $("#banner ul").animate({
+                attr : "x",
+                target : num * -900
+            });
+            num++;
+        },1000)
+    });
+</script>

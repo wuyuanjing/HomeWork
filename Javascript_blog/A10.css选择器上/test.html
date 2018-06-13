@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<div id="box">hello</div>
+
+<p>
+    <span class="a">我想好好学习</span>
+    <span>我想好好学习</span>
+    <span>我想好好学习</span>
+</p>
+
+<p>
+    <span class="a">我想好好学习hello world</span>
+    <span>我想好好学习hello world</span>
+    <span>我想好好学习hello world</span>
+</p>
+
+</body>
+</html>
+<script>
+     
+    function $(args) {
+    	//创建一个空数组
+        var element = [];
+//      		判断参数第1个下标
+        switch (args.charAt(0)){
+            case "#":
+//          如果是#,把它添加到空数组中
+                element.push(document.getElementById(args.substring(1)));
+                break;
+        }
+        return element;
+    }
+
+
+    
+</script>

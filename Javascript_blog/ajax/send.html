@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/ajax.js"></script>
+</head>
+<body>
+
+
+<script>
+
+    ajax({
+        method : "post",
+        url : "php/send.php",
+        data : {
+            name : "jack",
+            pass : 123456
+        },
+        success : function (responseText) {
+            alert(responseText);
+        },
+        async : true
+    })
+
+</script>
+
+
+</body>
+</html>

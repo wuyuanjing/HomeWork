@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/tool.js"></script>
+    <script src="js/base.js"></script>
+</head>
+<body>
+<input type="button" value="按钮" id="box">
+<a href="https://www.baidu.com">hello</a>
+</body>
+</html>
+<script>
+   window.onload = function () {
+       var $ = function (args) {
+           return new Base(args);
+       };
+        var a = document.getElementsByTagName("a")[0];
+        var oBtn = document.getElementById("box");
+        addEvent(oBtn,"click",function (e) {
+            alert("hello");
+            if(e.cancelBubble != undefined){
+                e.cancelBubble =true;
+            }
+        });
+
+        addEvent(document,"click",function () {
+            alert("123");
+
+        })
+
+       addEvent(a,"click",function (e) {
+           if(e.cancelBubble != undefined){
+               e.cancelBubble =true;
+           }
+           alert("1");
+            e.returnValue = false;
+       });
+   }
+</script>

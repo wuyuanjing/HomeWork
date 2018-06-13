@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    var oBox = document.getElementById("box");
+//    alert(getComputedStyle(oBox,false).width);
+//   alert(oBox.currentStyle.width)
+    if(typeof getComputedStyle(oBox,false) != "undefined"){
+        alert(getComputedStyle(oBox,false).width)
+    }else if(typeof oBox.currentStyle != "undefined"){
+        alert(oBox.currentStyle.width)
+    }
+</script>
